@@ -9,13 +9,17 @@ const getSum = () => {
 //Add your code here
 	let sum=0;
 	for(let i=0;i<price.length;i++){
-		   sum+=price[i].textContent;
+		   sum+=Number(price[i].textContent);
     }
 	  
-     let lastrow=document.createElement('tr');
-     let totalcell=document.createElement('td');
-     totalCell.textContent = `Total Price: ${sum}`;
-	 totalRow.appendChild(totalCell);
+    let totalRow = document.createElement('tr');
+    let totalCell = document.createElement('td');
+    
+    // Stretch the single cell across the 2 columns of your table
+    totalCell.colSpan = 2;
+    totalCell.textContent = `${sum}`;
+    
+    totalRow.appendChild(totalCell);
     table.appendChild(totalRow);
   
 };
